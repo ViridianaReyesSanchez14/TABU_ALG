@@ -52,7 +52,7 @@ class BusquedaTabu:
                 vecino = self.estado_actual[:]
                 vecino[i], vecino[j] = vecino[j], vecino[i]
                 vecinos.append(vecino)
-    return vecinos
+        return vecinos
 
 
     def es_tabu(self, vecino):
