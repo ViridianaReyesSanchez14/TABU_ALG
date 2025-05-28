@@ -80,37 +80,37 @@
         <!-- Formulario único sin duplicación -->
         <form action="/calcular_ruta" method="POST">
             <label for="tiempo_persistencia">Tiempo de Persistencia:</label>
-            <input type="number" name="tiempo_persistencia" required>
+            <input type="number" name="tiempo_persistencia" value="{{ tiempo_persistencia }}" required>
 
             <label for="iteraciones">Número de Iteraciones:</label>
-            <input type="number" name="iteraciones" required>
+            <input type="number" name="iteraciones" value="{{ iteraciones }}" required>
 
             <label for="ciudad_origen">Ciudad de Origen:</label>
             <select name="ciudad_origen" required>
-                <option value="CDMX">CDMX</option>
-                <option value="Toluca">Toluca</option>
-                <option value="Atlacomulco">Atlacomulco</option>
-                <option value="Guadalajara">Guadalajara</option>
-                <option value="Monterrey">Monterrey</option>
-                <option value="QuintanaRoo">QuintanaRoo</option>
-                <option value="Michohacan">Michohacan</option>
-                <option value="Aguascalientes">Aguascalientes</option>
-                <option value="Jiloyork">Jiloyork</option>
-                <option value="QRO">QRO</option>
+                <option value="CDMX" {% if ciudad_origen == 'CDMX' %}selected{% endif %}>CDMX</option>
+                <option value="Toluca" {% if ciudad_origen == 'Toluca' %}selected{% endif %}>Toluca</option>
+                <option value="Atlacomulco" {% if ciudad_origen == 'Atlacomulco' %}selected{% endif %}>Atlacomulco</option>
+                <option value="Guadalajara" {% if ciudad_origen == 'Guadalajara' %}selected{% endif %}>Guadalajara</option>
+                <option value="Monterrey" {% if ciudad_origen == 'Monterrey' %}selected{% endif %}>Monterrey</option>
+                <option value="QuintanaRoo" {% if ciudad_origen == 'QuintanaRoo' %}selected{% endif %}>QuintanaRoo</option>
+                <option value="Michohacan" {% if ciudad_origen == 'Michohacan' %}selected{% endif %}>Michohacan</option>
+                <option value="Aguascalientes" {% if ciudad_origen == 'Aguascalientes' %}selected{% endif %}>Aguascalientes</option>
+                <option value="Jiloyork" {% if ciudad_origen == 'Jiloyork' %}selected{% endif %}>Jiloyork</option>
+                <option value="QRO" {% if ciudad_origen == 'QRO' %}selected{% endif %}>QRO</option>
             </select>
 
             <label for="ciudad_destino">Ciudad de Destino:</label>
             <select name="ciudad_destino" required>
-                <option value="CDMX">CDMX</option>
-                <option value="Toluca">Toluca</option>
-                <option value="Atlacomulco">Atlacomulco</option>
-                <option value="Guadalajara">Guadalajara</option>
-                <option value="Monterrey">Monterrey</option>
-                <option value="QuintanaRoo">QuintanaRoo</option>
-                <option value="Michohacan">Michohacan</option>
-                <option value="Aguascalientes">Aguascalientes</option>
-                <option value="Jiloyork">Jiloyork</option>
-                <option value="QRO">QRO</option>
+                <option value="CDMX" {% if ciudad_destino == 'CDMX' %}selected{% endif %}>CDMX</option>
+                <option value="Toluca" {% if ciudad_destino == 'Toluca' %}selected{% endif %}>Toluca</option>
+                <option value="Atlacomulco" {% if ciudad_destino == 'Atlacomulco' %}selected{% endif %}>Atlacomulco</option>
+                <option value="Guadalajara" {% if ciudad_destino == 'Guadalajara' %}selected{% endif %}>Guadalajara</option>
+                <option value="Monterrey" {% if ciudad_destino == 'Monterrey' %}selected{% endif %}>Monterrey</option>
+                <option value="QuintanaRoo" {% if ciudad_destino == 'QuintanaRoo' %}selected{% endif %}>QuintanaRoo</option>
+                <option value="Michohacan" {% if ciudad_destino == 'Michohacan' %}selected{% endif %}>Michohacan</option>
+                <option value="Aguascalientes" {% if ciudad_destino == 'Aguascalientes' %}selected{% endif %}>Aguascalientes</option>
+                <option value="Jiloyork" {% if ciudad_destino == 'Jiloyork' %}selected{% endif %}>Jiloyork</option>
+                <option value="QRO" {% if ciudad_destino == 'QRO' %}selected{% endif %}>QRO</option>
             </select>
 
             <button type="submit">Calcular Mejor Ruta</button>
@@ -127,4 +127,3 @@
     </div>
 </body>
 </html>
-
