@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo Búsqueda Tabú</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/images/fondo_2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f5a623;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #f5a623;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        button {
+            background-color: #f5a623;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d17a00;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .result p {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Algoritmo de Búsqueda Tabú - TSP</h1>
+        <!-- Formulario único sin duplicación -->
+        <form action="/calcular_ruta" method="POST">
+            <label for="tiempo_persistencia">Tiempo de Persistencia:</label>
+            <input type="number" name="tiempo_persistencia" required>
+
+            <label for="iteraciones">Número de Iteraciones:</label>
+            <input type="number" name="iteraciones" required>
+
+            <label for="ciudad_origen">Ciudad de Origen:</label>
+            <select name="ciudad_origen" required>
+                <option value="CDMX">CDMX</option>
+                <option value="Toluca">Toluca</option>
+                <option value="Atlacomulco">Atlacomulco</option>
+                <option value="Guadalajara">Guadalajara</option>
+                <option value="Monterrey">Monterrey</option>
+                <option value="QuintanaRoo">QuintanaRoo</option>
+                <option value="Michohacan">Michohacan</option>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Jiloyork">Jiloyork</option>
+                <option value="QRO">QRO</option>
+            </select>
+
+            <label for="ciudad_destino">Ciudad de Destino:</label>
+            <select name="ciudad_destino" required>
+                <option value="CDMX">CDMX</option>
+                <option value="Toluca">Toluca</option>
+                <option value="Atlacomulco">Atlacomulco</option>
+                <option value="Guadalajara">Guadalajara</option>
+                <option value="Monterrey">Monterrey</option>
+                <option value="QuintanaRoo">QuintanaRoo</option>
+                <option value="Michohacan">Michohacan</option>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Jiloyork">Jiloyork</option>
+                <option value="QRO">QRO</option>
+            </select>
+
+            <button type="submit">Calcular Mejor Ruta</button>
+        </form>
+
+        <!-- Mostrar resultado si existe -->
+        {% if mejor_solucion %}
+        <div class="result">
+            <h2>Mejor Ruta Encontrada</h2>
+            <p><strong>Ruta:</strong> {{ mejor_solucion }}</p>
+            <p><strong>Distancia Total:</strong> {{ mejor_evaluacion }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
