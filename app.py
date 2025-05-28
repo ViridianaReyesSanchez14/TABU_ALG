@@ -144,7 +144,17 @@ def calcular_ruta():
     busqueda_tabu = BusquedaTabu(coord, tiempo_persistencia, iteraciones, ciudad_origen, ciudad_destino)
     mejor_solucion, mejor_evaluacion = busqueda_tabu.ejecutar()
 
-    return render_template('index.html', mejor_solucion=mejor_solucion, mejor_evaluacion=mejor_evaluacion)
+    # Pasar los datos al template para mantener los valores en las cajas de texto
+    return render_template(
+        'index.html',
+        mejor_solucion=mejor_solucion,
+        mejor_evaluacion=mejor_evaluacion,
+        tiempo_persistencia=tiempo_persistencia,
+        iteraciones=iteraciones,
+        ciudad_origen=ciudad_origen,
+        ciudad_destino=ciudad_destino
+    )
+
 
 if __name__ == '__main__':
     app.run(debug=True)
