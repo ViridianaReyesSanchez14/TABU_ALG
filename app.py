@@ -44,14 +44,16 @@ class BusquedaTabu:
         self.mejor_evaluacion = evalua_ruta(self.estado_actual, self.coord)
 
     def obtener_vecinos(self):
-        vecinos = []
-        # Generamos vecinos intercambiando dos ciudades entre la ciudad de origen y destino
+    vecinos = []
+    # Generamos vecinos intercambiando dos ciudades entre la ciudad de origen y destino
         for i in range(1, self.n_variables - 1):  # No permutar las ciudades de origen y destino
             for j in range(i + 1, self.n_variables - 1):  # No permutar las ciudades de origen y destino
+            # Crear un vecino haciendo un intercambio de las ciudades intermedias
                 vecino = self.estado_actual[:]
                 vecino[i], vecino[j] = vecino[j], vecino[i]
                 vecinos.append(vecino)
-        return vecinos
+    return vecinos
+
 
     def es_tabu(self, vecino):
         # Aquí se almacena en la memoria tabú los intercambios realizados
